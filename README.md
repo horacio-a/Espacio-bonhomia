@@ -16,7 +16,7 @@
 
 ## Video explicativo ##
 
-
+[![Alt text](https://img.youtube.com/vi/WP2HwJrsfHw/0.jpg)](https://www.youtube.com/watch?v=WP2HwJrsfHw)
 
 ## Tabla de Contenidos ##
 
