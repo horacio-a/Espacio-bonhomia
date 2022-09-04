@@ -5,7 +5,7 @@
 
 - Python
 - Django
-
+- Pillow
 
 ## Desarrolador ##
  - Horacio Albornoz
