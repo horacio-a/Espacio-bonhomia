@@ -16,19 +16,31 @@
 
 
 
-Tabla de Contenidos
-  - 1 Estructura de la pagina si no estas logueado
+##Tabla de Contenidos##
+
+****  - 1 Estructura de la pagina si no estas logueado ****
+  
     - 1.1  Tendremos un cartel de Bienvenida al sitio.
+    
       - 1.1.1. Apretar el botón "Click Aquí" para ir a los productos.
+      
     - 1.2 En la pestaña Todos Productos estarán los respectivos.
+    
       - 1.2.1 En la esquina derecha estará la búsqueda para buscar los productos.
+      
     - 1.3 En la pestaña categorías podemos encontrar las categorías a las que pertenecen los productos.
+    
     - 1.4 En la siguiente pestaña estará la de Marcas donde se ubicaran los que trabajan con el Supermercado.
+    
       - 1.4.1 En la esquina derecha estará la búsqueda para ubicar a las marcas.
       - 1.4.2 Haciendoo click en los botones de cada marca se mostraran los productos de dicha marca
+      
     - 1.5 En la pestaña Sucursales, estarán todas las direcciones de nuestras distintas ubicaciones.
+    
     - 1.6 En el boton login al hacer click encontralemos dos campos a completar para ingresar
+    
     - 1.7 En el boton register al hacer click encontralemos 4 campos a completar para crear un perfil y usuario
+    
   -2 Estructura de la pagina una vez logeados siendo un cliente de la pagina
     - 2.1 Tendremos un cartel de Bienvenida al sitio con el nombre del usuario logueado.
       - 2.1.1. Apretar el botón "Click Aquí" para ir a los productos.
