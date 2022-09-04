@@ -129,7 +129,7 @@ def EliminarProducto(request, pk):
 def EditarProducto(request, pk):
     if request.user.is_authenticated and request.user.is_superuser:
         if request.method == 'POST':
-            form = Formulario_productos(request.POST)
+            form = Formulario_productos(request.POST, request.FILES)
             if form.is_valid():
                 productos = Articulos.objects.get(id=pk)
                 productos.name = form.cleaned_data['name']
@@ -138,6 +138,8 @@ def EditarProducto(request, pk):
                 productos.categoria = form.cleaned_data['categoria']
                 productos.description = form.cleaned_data['description']
                 productos.stock = form.cleaned_data['stock']
+                productos.image = form.cleaned_data['image']
+
 
                 productos.save()
                 return redirect(inicio)
