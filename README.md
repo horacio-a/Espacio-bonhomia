@@ -16,7 +16,7 @@
 
 
 
-##Tabla de Contenidos##
+## Tabla de Contenidos ##
 
 ****  - 1 Estructura de la pagina si no estas logueado ****
   
