@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+{% endblock %}
+{% block busqueda %}
+<form class="form-inline my-2 my-lg-0" action="/productos/search-marcas/" method="GET">
+    <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" name = 'search-marcas'>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+</form>
+{% endblock %}
+
+{% block contenido_que_cambia %}
+<main style="width: 90%; height: auto; margin-left: 5%; margin-right: 5%; margin-top: 2.5%; display: flex; justify-content: center; align-items: center;">
+    <div style="display: grid; grid-template-columns: repeat(5, 1fr);">
+{% for Marcas in marcas %}
+<div class="d-inline-flex">
+<div class="card" style="width: 15rem; margin-left: 5vh; margin-right: 5vh; margin-bottom: 5vh;">
+    <div class="card-body" style=" display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <h5 class="card-title">{{Marcas.name}}</h5>
+        <p class="card-text">{{Marcas.email}}</p>
+        {% if request.user.is_superuser and request.user.is_authenticated %}
+        <div class="d-flex justify-content-around">
+            <a href="/productos/uptade-marca/{{Marcas.id}}"
+                class="btn btn-warning my-2 my-sm-0">Editar</a>
+            <a href="/productos/delete-marca/{{Marcas.id}}"
+                class="btn btn-danger my-2 my-sm-0">eliminar</a>
+        </div>
+        {% else %}
+        <div class="d-flex justify-content-center">
+            <a href="/productos/list-product/marca/{{Marcas.name}}" class="btn btn-success my-2 my-sm-0">Productos de la marca</a>
+        </div>
+        {% endif %}
+
+    </div>
+</div>
+</div>
+{% endfor %}
+</div>
+</main>
+
+{% endblock %}

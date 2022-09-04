@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block titulo %} Inicio {% endblock %}
+{% block estilo %}
+<style>
+    .display-3 {
+        color: wheat;
+    }
+</style>
+{% endblock %}
+{% block contenido_que_cambia %}
+
+<div class="carousel-item active">
+    <img src="media/vinos.jpg" style="height: 93vh; width: 100vw; object-fit: cover;" >
+    <div class="carousel-caption " style="margin-bottom: 100px; ">
+        <div class="container" style="height: 40vh; width: 40vw; background-color: rgba(30, 30, 30, 0.95); display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 25px;">
+            <h1 class="display-3 text-center">
+                <p> Bienvenido
+
+                    {% if request.user.is_authenticated %}
+                    {{user}}
+                    {% else %}
+
+                    {% endif %}
+                </p>
+                <p> a Espacio Bonhomia</p>
+            </h1>
+            <p class="text-center" style="color: wheat;">Presione para ver productos</p>
+            <p class=" text-center"">
+                                    <a class=" btn btn-light btn-lg" href="/productos/list-product/" role="button">
+                Click aquí</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

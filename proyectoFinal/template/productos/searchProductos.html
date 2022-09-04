@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+Todo nuestros productos
+{% endblock %}
+{% block busqueda %}
+<form class="form-inline my-2 my-lg-0" action="/productos/search-productos/" method="GET">
+    <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" name='search-productos'>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+</form>
+{% endblock %}
+
+{% block contenido_que_cambia %}
+<main style="width: 90%; height: auto; margin-left: 5%; margin-right: 5%; margin-top: 2.5%; display: flex; justify-content: center; align-items: center;">
+    <div style="display: grid; grid-template-columns: repeat(5, 1fr);">
+        {% for articulos in productos %}
+        <div class=" card" style="width: 15rem; margin-left: 5vh; margin-right: 5vh; margin-bottom: 5vh;">
+            {% if articulos.image %}
+            <img src="{{articulos.image.url}}" class="card-img-top">
+            {% else %}
+            <img src="https://i0.wp.com/edtechreviews.net/wp-content/uploads/2021/12/coderhouse_logo.png?resize=750%2C750&ssl=1"
+                class="card-img-top">
+            {% endif %}
+            <div class="card-body" style="background-color: wheat;">
+                <h5 class="card-title text-center">{{articulos.name}}</h5>
+                <p class="card-text text-center">Precio: {{articulos.price}}</p>
+                <p class="card-text text-center"> {{articulos.description}}</p>
+                {% if request.user.is_superuser %}
+                <p class="card-text text-center">stock {{articulos.stock}}</p>
+                {% endif %}
+                {% if request.user.is_superuser %}
+                <div class="d-flex justify-content-around">
+                    <a href="/productos/uptade-producto/{{articulos.id}}"
+                        class="btn btn-outline-warning my-2 my-sm-0">Editar</a>
+                    <a href="/productos/delete-producto/{{articulos.id}}"
+                        class="btn btn-outline-danger my-2 my-sm-0">eliminar</a>
+                </div>
+                {% elif request.user.is_authenticated %}
+                <div class="d-flex justify-content-center">
+                    <a href="/productos/delete-producto/{{articulos.id}}"
+                        class="btn btn-success my-2 my-sm-0">Comprar</a>
+                </div>
+                {% else %}
+                <div class="d-flex justify-content-center">
+                    <a href="/users/login/" class="btn btn-success my-2 my-sm-0">Login</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</main>
+
+
+
+{% endblock %}

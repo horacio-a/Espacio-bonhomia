@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+Borrar producto
+{% endblock %}
+{% block busqueda %}
+
+{% endblock %}
+{% block estilo %}
+<style>
+
+
+
+main{
+    color: white;
+    width: 100%;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+    }
+#enviar{
+        margin-top: 30px;
+    }
+
+</style>
+{% endblock %}
+{% block contenido_que_cambia %}
+<main>
+<p >producto a eliminar: {{productos.name}}</p>
+
+<form action="" method="post">
+    {% csrf_token %}
+        <a href="/productos/list-product/" class="btn btn-success">Volver</a>
+    <p> <input type="submit" value="Eliminar" id="enviar" class="btn btn-danger"></p>
+</form>
+</main>
+{% endblock %}

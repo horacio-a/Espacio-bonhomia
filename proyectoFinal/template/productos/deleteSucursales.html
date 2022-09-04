@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+Borrar sucursales
+{% endblock %}
+{% block busqueda %}
+
+{% endblock %}
+{% block estilo %}
+<style>
+
+
+
+main{
+    color: white;
+    width: 100%;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+    }
+#enviar{
+        margin-top: 30px;
+    }
+
+</style>
+{% endblock %}
+{% block contenido_que_cambia %}
+<main>
+<p >Sucursal a eliminar: {{sucursales.direction}}</p>
+
+<form action="" method="post">
+    {% csrf_token %}
+        <a href="/productos/list-sucursales/" class="btn btn-success">Volver</a>
+    <p> <input type="submit" value="Eliminar" id="enviar" class="btn btn-danger"></p>
+</form>
+</main>
+{% endblock %}

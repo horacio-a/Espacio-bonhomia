@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+{% endblock %}
+
+
+{% block contenido_que_cambia %}
+<main style="width: 90%; height: auto; margin-left: 5%; margin-right: 5%; margin-top: 2.5%; display: flex; justify-content: center; align-items: center;">
+    <div style="display: grid; grid-template-columns: repeat(5, 1fr);">
+{% for Sucursales in sucursales %}
+
+<div class="d-inline-flex">
+<div class="card" style="width: 18rem;  margin-left: 5vh; margin-right: 5vh; margin-bottom: 5vh;">
+    <img src="https://i0.wp.com/edtechreviews.net/wp-content/uploads/2021/12/coderhouse_logo.png?resize=750%2C750&ssl=1" class="card-img-top">
+    <div class="card-body">
+        <h5 class="card-title text-center">{{Sucursales.direction}}</h5>
+    </div>
+    {% if request.user.is_superuser and request.user.is_authenticated %}
+    <div class="d-flex justify-content-around">
+        <a href="/productos/uptade-sucursales/{{Sucursales.id}}"
+            class="btn btn-warning my-2 my-sm-0">Editar</a>
+        <a href="/productos/delete-sucursales/{{Sucursales.id}}"
+            class="btn btn-danger my-2 my-sm-0">eliminar</a>
+    </div>
+    {% else %}
+
+    {% endif %}
+</div>
+</div>
+{% endfor %}
+</div>
+</main>
+
+{% endblock %}
