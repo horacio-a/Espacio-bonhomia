@@ -10,7 +10,7 @@ from productos.forms import Formulario_productos, Formulario_marca, Formulario_S
 
 
 def inicio(request):
-    productos = Articulos.objects.all()
+    productos = Articulos.objects.all().order_by('categoria')
     context = {
         'productos': productos
     }

@@ -37,7 +37,7 @@ Todo nuestros productos
                 </div>
                 {% elif request.user.is_authenticated %}
                 <div class="d-flex justify-content-center">
-                    <a href="/productos/delete-producto/{{articulos.id}}"
+                    <a href="{% url 'Add' articulos.id 'inicio'%}"
                         class="btn btn-success my-2 my-sm-0">Comprar</a>
                 </div>
                 {% else %}
